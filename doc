@@ -1,0 +1,39 @@
+#!/bin/bash
+
+
+
+
+# commands
+if [ $# -gt 0 ]
+then
+    if [ "$1" == "init" ] || [ "$1" == "-i" ]
+    then
+        if [ -d ".git" ]
+        then
+            color $Yellow
+            echo "Already Initialized"
+        else
+            color $UGreen
+            echo "Initializing_repo :"
+            color $Red
+            git init
+        fi
+    elif [ "$1" == "undo" ] || [ "$1" == "-u" ]
+    then
+        undo
+    elif [ "$1" == "add" ] || [ "$1" == "-a" ]
+    then
+        add
+    else
+        color $Red
+        echo "Invalid parameters"
+        error
+    fi
+    exit 0
+
+else
+    error
+fi
+
+
+color $Color_Off
