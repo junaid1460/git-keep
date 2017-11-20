@@ -2,6 +2,19 @@
 
 
 
+# if repository not initialized then notify
+if [ "$1" != "init" ] && [ "$1" != "-i" ]  && [ ! -d ".git" ]
+then
+    color $Red
+    print "Repository not initialized yet!"
+    color $Green
+    print "please run :"
+    color $Color_Off
+    print  "    doc [init|-i]"
+    print 
+    exit
+fi
+
 
 # commands
 if [ $# -gt 0 ]
