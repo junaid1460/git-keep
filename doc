@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# import local files
+dir="$(cd $(dirname $0);pwd)"
+local_dir="$dir/src"
+source "$local_dir/variables.sh"
+source "$local_dir/colors.sh"
+source "$local_dir/helpers.sh"
+source "$local_dir/error.sh"
+source "$local_dir/editor.sh"
+source "$local_dir/functions.sh"
+
 
 
 # if repository not initialized then notify
