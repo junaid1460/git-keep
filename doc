@@ -10,7 +10,7 @@ source "$local_dir/error.sh"
 source "$local_dir/editor.sh"
 source "$local_dir/functions.sh"
 
-
+cd $dir
 
 # if repository not initialized then notify
 if [ "$1" != "init" ] && [ "$1" != "-i" ]  && [ ! -d ".git" ]
