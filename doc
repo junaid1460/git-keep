@@ -10,7 +10,9 @@ source "$local_dir/error.sh"
 source "$local_dir/editor.sh"
 source "$local_dir/functions.sh"
 
-repo=$1 
+repo=$1
+# change directory to repo
+cd $repo 
 command=$2
 # if repository not initialized then notify
 if [ "$command" != "init" ] && [ "$command" != "-i" ]  && [ ! -d "$repo.git" ]
