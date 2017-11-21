@@ -38,8 +38,24 @@ confirm () {
     echo -e "\e[1A\r"
 }
 
+delete_temp () {
+    rm  $info_temp_file
+    rm  $commit_temp_file
+}
+
+create_temp () {
+    touch $info_temp_file
+    touch $commit_temp_file
+}
+
 add () {
+    create_temp
+    delete_temp
+    create_temp
+
     edit
     show | less -r
     confirm
+
+    delete_temp
 }
