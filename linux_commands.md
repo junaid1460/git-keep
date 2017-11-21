@@ -23,7 +23,7 @@
 ## `linux` system 
  - password /etc/shadow (password enc)
  - users /etc/passwd
- - sudoers /etc/sudoes
+ - sudoers /etc/sudoers
 ---
 ## grub 
  - /boot/grub/grub.cfg `grub config`
