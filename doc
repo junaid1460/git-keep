@@ -10,10 +10,10 @@ source "$local_dir/error.sh"
 source "$local_dir/editor.sh"
 source "$local_dir/functions.sh"
 
-cd $dir
-
+repo=$1 
+command=$2
 # if repository not initialized then notify
-if [ "$1" != "init" ] && [ "$1" != "-i" ]  && [ ! -d ".git" ]
+if [ "$command" != "init" ] && [ "$command" != "-i" ]  && [ ! -d "$repo.git" ]
 then
     color $Red
     print "Repository not initialized yet!"
@@ -27,9 +27,10 @@ fi
 
 
 # commands
+
 if [ $# -gt 0 ]
 then
-    if [ "$1" == "init" ] || [ "$1" == "-i" ]
+    if [ "$command" == "init" ] || [ "$command" == "-i" ]
     then
         if [ -d ".git" ]
         then
@@ -41,10 +42,10 @@ then
             color $Red
             git init
         fi
-    elif [ "$1" == "undo" ] || [ "$1" == "-u" ]
+    elif [ "$command" == "undo" ] || [ "$command" == "-u" ]
     then
         undo
-    elif [ "$1" == "add" ] || [ "$1" == "-a" ]
+    elif [ "$command" == "add" ] || [ "$command" == "-a" ]
     then
         add
     else
