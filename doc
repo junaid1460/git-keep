@@ -1,5 +1,6 @@
 #!/bin/bash
-
+repo=$1
+command=$2
 # import local files
 dir="$(cd $(dirname $0);pwd)"
 local_dir="$dir/src"
@@ -10,12 +11,12 @@ source "$local_dir/error.sh"
 source "$local_dir/editor.sh"
 source "$local_dir/functions.sh"
 
-repo=$1
+
 # change directory to repo
 cd $repo 
-command=$2
+
 # if repository not initialized then notify
-if [ "$command" != "init" ] && [ "$command" != "-i" ]  && [ ! -d "$repo.git" ]
+if [ "$command" != "init" ] && [ "$command" != "-i" ]  && [ ! -d ".git" ]
 then
     color $Red
     print "Repository not initialized yet!"
