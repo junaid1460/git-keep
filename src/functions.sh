@@ -34,6 +34,25 @@ confirm () {
         add  
         return     
     fi
+    message="$(cat $commit_temp_file)"
+    if [ "$message" == "" ]
+    then
+        message="$(date)"
+    fi
+    if [ ! -d "$files_dir" ]
+    then
+        mkdir $files_dir
+    fi
+    if [ ! -f "README.md" ]
+    then
+        echo "# Logs" >> README.md
+    fi
+    rand="$(date +%s%N)"
+    newfile="$(echo -n $rand$message$RANDOM | base64).md"
+    data="$(cat $info_temp_file)"
+    echo $data > "$files_dir/$newfile"
+    git add "$files_dir/$newfile"
+    git commit -m "[$newfile] $message"
     show
     echo -e "\e[1A\r"
 }
