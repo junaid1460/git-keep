@@ -21,7 +21,12 @@ show () {
 }
 
 commit () {
-    echo "nothing"
+    message="$(get_commit_message)"
+    newfile="$(get_newfile_name $message)"
+    data="$(cat $info_temp_file)"
+    echo $data > "$files_dir/$newfile"
+    git add "$files_dir/$newfile"
+    git commit -m "[$newfile] $message"
 }
 
 get_newfile_name () {
@@ -59,22 +64,20 @@ verify_requirements () {
     fi
 }
 
-confirm () {
-    ask #ask what to do 
-    verify_requirements #verfiy that all required files/dir are there
+get_commit_message () {
     message="$(cat $commit_temp_file)"
     if [ "$message" == "" ]
     then
-        message="$(date)"
+        message="On $(date)"
     fi
+    echo $message
+}
 
-    newfile="$(get_newfile_name $message)"
-    data="$(cat $info_temp_file)"
-    echo $data > "$files_dir/$newfile"
-    git add "$files_dir/$newfile"
-    git commit -m "[$newfile] $message"
+confirm () {
+    ask #ask what to do 
+    verify_requirements #verfiy that all required files/dir are there
+    commit #commit changes
     show
-    echo -e "\e[1A\r"
 }
 
 delete_temp () {
@@ -92,8 +95,8 @@ add () {
     delete_temp
     create_temp
 
-    edit
-    show | less -r
+    # edit
+    # show | less -r
     confirm
 
     delete_temp
