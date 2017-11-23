@@ -10,6 +10,7 @@ source "$local_dir/helpers.sh"
 source "$local_dir/error.sh"
 source "$local_dir/editor.sh"
 source "$local_dir/functions.sh"
+source "$local_dir/functions.ls.sh"
 
 
 # change directory to repo
@@ -51,6 +52,10 @@ then
     elif [ "$command" == "add" ] || [ "$command" == "-a" ]
     then
         add
+    elif [ "$command" == "list-files" ] || [ "$command" == "ls" ]
+    then
+        verify_requirements
+        list_info
     else
         color $Red
         echo "Invalid parameters"
