@@ -37,8 +37,7 @@ get_newfile_name () {
     printf $newfile
 }
 
-
-confirm () {
+ask () {
     echo  -ne "commit or edit [Ce]?" 
     read opt
     if [ "$opt" == "e" ]
@@ -47,6 +46,10 @@ confirm () {
         add  
         return     
     fi
+}
+
+confirm () {
+    ask #ask what to do 
     message="$(cat $commit_temp_file)"
     if [ "$message" == "" ]
     then
