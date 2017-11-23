@@ -1,8 +1,12 @@
+# This file has all functions for doc <repo> add
+
+#edit files
 edit () {
     eval $editor $info_temp_file
     eval $editor $commit_temp_file
 }
 
+# Show summary
 show () {
     color $Green
     print "Information : "
@@ -15,6 +19,7 @@ show () {
     color $Off
 }
 
+# write content to new file and commit
 commit () {
     message="$(get_commit_message)"
     newfile="$(get_newfile_name $message)"
@@ -25,6 +30,7 @@ commit () {
     git commit -m "[$newfile] $message"
 }
 
+# generate new file name which does not exist under <repo>/files
 get_newfile_name () {
     # $1: commit message
     # $files_dir => global var
@@ -38,6 +44,7 @@ get_newfile_name () {
     printf $newfile
 }
 
+# ask for confirmation
 ask () {
     echo  -ne "commit or edit [Ce]?" 
     read opt
@@ -49,6 +56,7 @@ ask () {
     fi
 }
 
+# Checking whether all requirements satisfied or not
 verify_requirements () {
     if [ ! -d "$files_dir" ]
     then
@@ -64,6 +72,7 @@ verify_requirements () {
     fi
 }
 
+# Checking whether commit message is empty or not
 get_commit_message () {
     message="$(cat $commit_temp_file)"
     if [ "$message" == "" ]
@@ -73,6 +82,7 @@ get_commit_message () {
     echo $message
 }
 
+# Confirm after edit
 confirm () {
     ask #ask what to do 
     verify_requirements #verfiy that all required files/dir are there
@@ -80,16 +90,19 @@ confirm () {
     show
 }
 
+# Delete temp file
 delete_temp () {
     rm  $info_temp_file
     rm  $commit_temp_file
 }
 
+# Create required temp file
 create_temp () {
     touch $info_temp_file
     touch $commit_temp_file
 }
 
+# Entry point
 add () {
     create_temp
     delete_temp
