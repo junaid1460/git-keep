@@ -66,9 +66,9 @@ verify_requirements () {
     then
         echo "# Logs" >> README.md
     fi
-    if [ ! -f "$file_info"]
+    if [ ! -f "$file_info" ]
     then
-        echo "file,commit" > "$file_info"
+        touch "$file_info"
     fi
 }
 
@@ -108,8 +108,8 @@ add () {
     delete_temp
     create_temp
 
-    edit
-    show | less -r
+    # edit
+    # show | less -r
     confirm
 
     delete_temp
