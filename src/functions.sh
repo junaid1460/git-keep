@@ -48,13 +48,7 @@ ask () {
     fi
 }
 
-confirm () {
-    ask #ask what to do 
-    message="$(cat $commit_temp_file)"
-    if [ "$message" == "" ]
-    then
-        message="$(date)"
-    fi
+verify_requirements () {
     if [ ! -d "$files_dir" ]
     then
         mkdir $files_dir
@@ -63,6 +57,17 @@ confirm () {
     then
         echo "# Logs" >> README.md
     fi
+}
+
+confirm () {
+    ask #ask what to do 
+    verify_requirements #verfiy that all required files/dir are there
+    message="$(cat $commit_temp_file)"
+    if [ "$message" == "" ]
+    then
+        message="$(date)"
+    fi
+
     newfile="$(get_newfile_name $message)"
     data="$(cat $info_temp_file)"
     echo $data > "$files_dir/$newfile"
