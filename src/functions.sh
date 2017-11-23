@@ -24,6 +24,19 @@ commit () {
     echo "nothing"
 }
 
+get_newfile_name () {
+    # $1: commit message
+    # $files_dir => global var
+    message=$1
+    rand="$(date +%s%N)"
+    newfile="$(echo -n $rand$message$RANDOM | base64).md"
+    while [ -f "$files_dir/$newfile" ];do 
+        rand="$(date +%s%N)"
+        newfile="$(echo -n $rand$message$RANDOM | base64).md"
+    done
+    printf $newfile
+}
+
 
 confirm () {
     echo  -ne "commit or edit [Ce]?" 
@@ -47,11 +60,7 @@ confirm () {
     then
         echo "# Logs" >> README.md
     fi
-    rand="$(date +%s%N)"
-    newfile="$(echo -n $rand$message$RANDOM | base64).md"
-    while [ -f "$files_dir/$newfile" ];do 
-        newfile="$(echo -n $rand$message$RANDOM | base64).md"
-    done
+    newfile="$(get_newfile_name $message)"
     data="$(cat $info_temp_file)"
     echo $data > "$files_dir/$newfile"
     git add "$files_dir/$newfile"
