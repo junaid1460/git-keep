@@ -49,6 +49,9 @@ confirm () {
     fi
     rand="$(date +%s%N)"
     newfile="$(echo -n $rand$message$RANDOM | base64).md"
+    while [ -f "$files_dir/$newfile" ];do 
+        newfile="$(echo -n $rand$message$RANDOM | base64).md"
+    done
     data="$(cat $info_temp_file)"
     echo $data > "$files_dir/$newfile"
     git add "$files_dir/$newfile"
