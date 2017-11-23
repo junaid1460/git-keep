@@ -1,8 +1,3 @@
-undo () {
-    git reset HEAD~1
-    git stash
-}
-
 edit () {
     eval $editor $info_temp_file
     eval $editor $commit_temp_file
@@ -24,6 +19,7 @@ commit () {
     message="$(get_commit_message)"
     newfile="$(get_newfile_name $message)"
     data="$(cat $info_temp_file)"
+    echo "$newfile,$message" >> "$file_info"
     echo $data > "$files_dir/$newfile"
     git add "$files_dir/$newfile"
     git commit -m "[$newfile] $message"
@@ -62,6 +58,10 @@ verify_requirements () {
     then
         echo "# Logs" >> README.md
     fi
+    if [ ! -f "$file_info"]
+    then
+        echo "file,commit" > "$file_info"
+    fi
 }
 
 get_commit_message () {
@@ -95,8 +95,8 @@ add () {
     delete_temp
     create_temp
 
-    # edit
-    # show | less -r
+    edit
+    show | less -r
     confirm
 
     delete_temp
