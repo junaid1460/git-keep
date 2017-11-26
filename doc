@@ -46,10 +46,7 @@ then
             color $Red
             git init
         fi
-    elif [ "$command" == "undo" ] || [ "$command" == "-u" ]
-    then
-        undo
-    elif [ "$command" == "add" ] || [ "$command" == "-a" ]
+    elif [ "$command" == "add" ] || [ "$command" == "a" ]
     then
         add
     elif [ "$command" == "list-files" ] || [ "$command" == "ls" ]
