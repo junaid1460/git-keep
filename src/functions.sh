@@ -108,8 +108,8 @@ add () {
     delete_temp
     create_temp
 
-    # edit
-    # show | less -r
+    edit
+    show | less -r
     confirm
 
     delete_temp
