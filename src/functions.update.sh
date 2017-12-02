@@ -2,14 +2,12 @@
 
 writeheader () {
     out=$1
-    echo "# My files" >> $out
-    echo "" >> $out
+    echo "$(cat $header_file)" >> $out
 }
 
 writefooter () {
     out=$1
-    echo "# License" >> $out
-    echo "MIT" >> $out
+    echo "$(cat $footer_file)" >> $out
 }
 
 writeInfoAsLinks () {
