@@ -29,5 +29,5 @@ updateREADME () {
 
     # footer
     footer="$(getfooter)"
-    echo $footer >> $footer
+    echo $footer >> $readmefile
 }
