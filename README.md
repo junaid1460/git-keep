@@ -3,7 +3,7 @@ logging important information to local repository, with little automation.
 
 ## How to
  - clone this repository and add it to path
- - The command has `doc <absolute-path-to-yourlogdir> <option> [parameter]`.
+ - The command has `doc <absolute-path-to-yourlogdir> <option> [parameter]` pattern.
  - avoid typing logdir path by aliasing this command `alias mydoc='doc <absolute-path-to-yourlogdir>'`
 
 ## what is ready?
