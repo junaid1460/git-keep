@@ -24,7 +24,7 @@ writeInfoAsLinks () {
 
 updateREADME () {
     # clear file
-    echo '' > $readmefile
+    echo -n '' > $readmefile
     # header
     writeheader $readmefile
     # content
