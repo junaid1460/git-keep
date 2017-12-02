@@ -1,5 +1,5 @@
 # Terminal quick logger
-logging important information to local repository. with little automation.
+logging important information to local repository, with little automation.
 
 ## How to
  - clone this repository and add it to path
