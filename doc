@@ -11,7 +11,7 @@ source "$local_dir/error.sh"
 source "$local_dir/editor.sh"
 source "$local_dir/functions.sh"
 source "$local_dir/functions.ls.sh"
-
+source "$local_dir/functions.update.sh"
 
 # change directory to repo
 cd $repo 
