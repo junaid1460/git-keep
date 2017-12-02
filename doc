@@ -61,13 +61,16 @@ then
         if [ "$parameter" == "header" ]
         then
             edit $header_file
+            commit? "Changed header."
         elif [ "$parameter" == "footer" ]
         then
             edit $footer_file
+            commit? "Changed footer."
         else
             colori $Red 
             printi "Invalid file name!\n"
         fi
+        
     else
         color $Red
         echo "Invalid parameters"
