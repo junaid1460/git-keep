@@ -61,10 +61,12 @@ then
         if [ "$parameter" == "header" ]
         then
             edit $header_file
+            updateREADME
             commit? "Changed header."
         elif [ "$parameter" == "footer" ]
         then
             edit $footer_file
+            updateREADME
             commit? "Changed footer."
         else
             colori $Red 
