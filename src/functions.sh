@@ -2,8 +2,8 @@
 
 #edit files
 edit () {
-    eval $editor $info_temp_file
-    eval $editor $commit_temp_file
+    current_file=$1
+    eval $editor $current_file
 }
 
 # Show summary
@@ -95,7 +95,8 @@ add () {
     create_temp
 
     # edit and show with color in less
-    edit
+    edit $info_temp_file
+    edit $commit_temp_file
     show | less -r
 
     # confirm with content
