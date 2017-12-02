@@ -1,33 +1,34 @@
 # after every changes update readme file
 
-getheader () {
-    echo "# My files"
-    echo ""
+writeheader () {
+    out=$1
+    echo "# My files" >> $out
+    echo "" >> $out
 }
 
-getfooter () {
-    echo "# License"
-    echo "MIT"
+writefooter () {
+    out=$1
+    echo "# License" >> $out
+    echo "MIT" >> $out
 }
 
-printInfoAsLinks () {
+writeInfoAsLinks () {
+    out=$1
     file="$(cat $info_file)"
     IFS=$'\n'
     for line in $file;do
         IFS=, read -r file commit <<< "$line"
-        echo " - [$commit]($files_dir/$file)"
+        echo " - [$commit](files/$file)" >> $out
     done
 }
 
 updateREADME () {
+    # clear file
+    echo '' > $readmefile
     # header
-    header="$(getheader)"
-    echo $header > $readmefile
+    writeheader $readmefile
     # content
-    content="$(printInfoAsLinks)"
-    echo $content >> $readmefile
-
+    writeInfoAsLinks $readmefile
     # footer
-    footer="$(getfooter)"
-    echo $footer >> $readmefile
+    writefooter $readmefile
 }
