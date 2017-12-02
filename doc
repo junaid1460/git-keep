@@ -1,6 +1,7 @@
 #!/bin/bash
 repo=$1
 command=$2
+parameter=$3
 # import local files
 dir="$(cd $(dirname $0);pwd)"
 local_dir="$dir/src"
@@ -54,8 +55,19 @@ then
         add
     elif [ "$command" == "list-files" ] || [ "$command" == "ls" ]
     then
-        verify_requirements
         list_info
+    elif [ "$command" == "edit" ] || [ "$command" == "e" ]
+    then
+        if [ "$parameter" == "header" ]
+        then
+            edit $header_file
+        elif [ "$parameter" == "footer" ]
+        then
+            edit $footer_file
+        else
+            colori $Red 
+            printi "Invalid file name!\n"
+        fi
     else
         color $Red
         echo "Invalid parameters"
