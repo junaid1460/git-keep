@@ -20,4 +20,6 @@ verify_requirements () {
     then
         touch "$header_file"
     fi
+
+    commit? "Created requirements!"
 }
