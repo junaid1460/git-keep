@@ -104,13 +104,22 @@ create_temp () {
 
 # Entry point
 add () {
+
+    # avoid reading oldfile
     create_temp
     delete_temp
     create_temp
 
+    # edit and show with color in less
     edit
     show | less -r
+
+    # confirm with content
     confirm
 
+    # update readme file
+    updateREADME
+
+    #delete temporary file
     delete_temp
 }
