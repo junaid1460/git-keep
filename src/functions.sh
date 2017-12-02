@@ -56,21 +56,6 @@ ask () {
     fi
 }
 
-# Checking whether all requirements satisfied or not
-verify_requirements () {
-    if [ ! -d "$files_dir" ]
-    then
-        mkdir $files_dir
-    fi
-    if [ ! -f "README.md" ]
-    then
-        echo "# Logs" >> README.md
-    fi
-    if [ ! -f "$info_file" ]
-    then
-        touch "$info_file"
-    fi
-}
 
 # Checking whether commit message is empty or not
 get_commit_message () {
@@ -85,7 +70,6 @@ get_commit_message () {
 # Confirm after edit
 confirm () {
     ask #ask what to do 
-    verify_requirements #verfiy that all required files/dir are there
     commit #commit changes
     show
 }
