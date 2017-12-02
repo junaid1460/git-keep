@@ -24,7 +24,7 @@ commit () {
     message="$(get_commit_message)"
     newfile="$(get_newfile_name $message)"
     data="$(cat $info_temp_file)"
-    echo "$newfile,$message" >> "$file_info"
+    echo "$newfile,$message" >> "$info_file"
     echo $data > "$files_dir/$newfile"
     git add "$files_dir/$newfile"
     git commit -m "[$newfile] $message"
@@ -66,9 +66,9 @@ verify_requirements () {
     then
         echo "# Logs" >> README.md
     fi
-    if [ ! -f "$file_info" ]
+    if [ ! -f "$info_file" ]
     then
-        touch "$file_info"
+        touch "$info_file"
     fi
 }
 

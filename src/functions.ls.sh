@@ -1,7 +1,7 @@
 # List all informations
 
 list_info () {
-    messages="$(cat $file_info)"
+    messages="$(cat $info_file)"
     count=0
     IFS=$'\n'
     for i in $messages;do
