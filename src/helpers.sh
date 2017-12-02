@@ -13,3 +13,13 @@ print () {
 printi () { #inline print
     sh -c "echo -n '$@'"
 }
+
+commit? () {
+    message="$1"
+    tmp="$(git diff --exit-code)"
+    if [ "$tmp" != "" ]
+    then
+        git add .
+        git commit -m $message
+    fi
+}
