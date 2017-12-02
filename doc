@@ -12,9 +12,12 @@ source "$local_dir/editor.sh"
 source "$local_dir/functions.sh"
 source "$local_dir/functions.ls.sh"
 source "$local_dir/functions.update.sh"
+source "$local_dir/functions.precheck.sh"
 
 # change directory to repo
 cd $repo 
+
+verify_requirements # verify required file exists or not, if not create them
 
 # if repository not initialized then notify
 if [ "$command" != "init" ] && [ "$command" != "-i" ]  && [ ! -d ".git" ]
