@@ -49,12 +49,12 @@ then
     then
         if [ -d ".git" ]
         then
-            color $Yellow
+            colori $Yellow
             echo "Already Initialized"
         else
-            color $UGreen
+            colori $UGreen
             echo "Initializing_repo :"
-            color $Red
+            colori $Red
             git init
         fi
     elif [ "$command" == "add" ] || [ "$command" == "a" ]
