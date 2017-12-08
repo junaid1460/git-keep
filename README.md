@@ -10,19 +10,18 @@ logging important information to local repository, with little automation.
 `Interface`
  - adding new log file
  - listing added log files
- - editing header and footer for README.md
+ - editing header and footer for README.md  
+
+
 `Background`
  - checking for existing file
  - auto updating files index
  - auto update README
  - commit only if files changed
- - etc.
+ - editing existing files with filenumber
 
 ## what next?
-`Interface`
- - editing existing files with filenumber
- - listing files with several options(like last 5)
  - you tell me.
 
-## `license`
+## license
 MIT
