@@ -75,9 +75,13 @@ then
             edit $footer_file
             updateREADME
             commit? "Changed footer."
-        else
+
+        elif [ "$parameter" == "" ]
+        then
             colori $Red 
             printi "Invalid file name!\n"
+        else
+            # edit file with number
         fi
         
     else
