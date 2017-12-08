@@ -28,14 +28,14 @@ cd $repo
 
 
 # if repository not initialized then notify
-if [ "$command" != "init" ] && [ "$command" != "-i" ]  && [ ! -d ".git" ]
+if [ "$command" != "init" ] && [ "$command" != "i" ]  && [ ! -d ".git" ]
 then
     color $Red
     print "Repository not initialized yet!"
     color $Green
     print "please run :"
     color $Color_Off
-    print  "    doc [init|-i]"
+    print  "    doc [init|i]"
     print 
     exit
 fi
