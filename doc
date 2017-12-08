@@ -14,6 +14,7 @@ source "$local_dir/functions.sh"
 source "$local_dir/functions.ls.sh"
 source "$local_dir/functions.update.sh"
 source "$local_dir/functions.precheck.sh"
+source "$local_dir/functions.edit.sh"
 
 if [ ! -d $repo ]
 then 
@@ -82,6 +83,7 @@ then
             printi "Invalid file name!\n"
         else
             # edit file with number
+            editWithNumber $parameter
         fi
         
     else
