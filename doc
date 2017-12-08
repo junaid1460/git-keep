@@ -15,8 +15,15 @@ source "$local_dir/functions.ls.sh"
 source "$local_dir/functions.update.sh"
 source "$local_dir/functions.precheck.sh"
 
+if [ ! -d $repo ]
+then 
+    echo $repo does not exist! Please create it before usage
+    exit
+fi
+
 # change directory to repo
 cd $repo 
+
 
 
 
