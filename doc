@@ -23,6 +23,7 @@ source "$local_dir/functions.ls.sh"
 source "$local_dir/functions.update.sh"
 source "$local_dir/functions.precheck.sh"
 source "$local_dir/functions.edit.sh"
+source "$local_dir/functions.cat.sh"
 
 
 
@@ -96,7 +97,9 @@ then
             # edit file with number
             editWithNumber $parameter
         fi
-        
+    elif [ "$command" == "cat" ]
+    then
+        showFileWithNumber $parameter
     else
         color $Red
         echo "Invalid parameters"
