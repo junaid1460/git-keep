@@ -7,6 +7,7 @@ error () {
     # print $Green"undo\t\tu"$BWhite"\tUndo the last add"
     print $Green"list-files\tls"$BWhite"\tlist all stored files"
     print $Green"edit\t\te"$BWhite"\tedit files"
+    print $Green"cat\t\t[None]"$BWhite"\tshow files"
     colori $White
     print "\nparameters :"
     print "1. edit/e <parameter>"
