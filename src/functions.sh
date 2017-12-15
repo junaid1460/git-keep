@@ -63,6 +63,8 @@ get_commit_message () {
     if [ "$message" == "" ]
     then
         message="On $(date)"
+    else
+        message="$message ($(date))"
     fi
     echo $message
 }
