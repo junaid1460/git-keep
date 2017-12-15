@@ -1,4 +1,12 @@
 #!/bin/bash
+
+if [ ! -t 0 ]
+then
+    echo "piping feature is not yet implemented!"
+    exit
+fi
+
+
 repo=$1
 command=$2
 parameter=$3
@@ -15,6 +23,8 @@ source "$local_dir/functions.ls.sh"
 source "$local_dir/functions.update.sh"
 source "$local_dir/functions.precheck.sh"
 source "$local_dir/functions.edit.sh"
+
+
 
 if [ ! -d $repo ]
 then 
@@ -60,6 +70,7 @@ then
         fi
     elif [ "$command" == "add" ] || [ "$command" == "a" ]
     then
+
         add
     elif [ "$command" == "list-files" ] || [ "$command" == "ls" ]
     then
