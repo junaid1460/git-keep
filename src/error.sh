@@ -8,6 +8,7 @@ error () {
     print $Green"list-files\tls"$BWhite"\tlist all stored files"
     print $Green"edit\t\te"$BWhite"\tedit files"
     print $Green"cat\t\t[None]"$BWhite"\tshow files"
+    print $Green"help\t\th"$BWhite"\tshow this message"
     colori $White
     print "\nparameters :"
     print "1. edit/e <parameter>"
