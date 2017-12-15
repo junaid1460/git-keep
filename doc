@@ -100,6 +100,10 @@ then
     elif [ "$command" == "cat" ]
     then
         showFileWithNumber $parameter
+
+    elif [ "$command" == "help" ] || [ "$command" == "h" ]
+    then
+        error
     else
         color $Red
         echo "Invalid parameters"
