@@ -1,13 +1,14 @@
 if [ "$(hash nano)" == "" ]
 then
-    editor="vim"
+    editor="nano"
 elif [ "$(hash vim)" == "" ]
 then
-    editor="vi"
+    editor="vim"
 elif [ "$(hash vi)" == "" ]
 then
-    editor="nano"
+    editor="vi"
 else
-    editor="cat>"
+    echo "no text editors found!(nano, vim, vi)"
+    exit
 fi
 export editor
