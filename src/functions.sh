@@ -23,11 +23,10 @@ show () {
 commit () {
     message="$(get_commit_message)"
     newfile="$(get_newfile_name $message)"
-    data="$(cat $info_temp_file)"
     echo "$newfile,$message" >> "$info_file"
-    echo $data > "$files_dir/$newfile"
-    git add "$files_dir/$newfile"
-    git commit -m "[$newfile] $message"
+    mv $info_temp_file "$files_dir/$newfile"
+    touch $info_temp_file # avoid error while deleting file
+    commit? $message
 }
 
 # generate new file name which does not exist under <repo>/files
@@ -106,7 +105,7 @@ add () {
 
     # update readme file
     updateREADME
-
+    commit? "Updated README.md"
     #delete temporary file
     delete_temp
 }
