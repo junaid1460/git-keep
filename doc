@@ -38,7 +38,6 @@ cd $repo
 
 
 
-
 # if repository not initialized then notify
 if [ "$command" != "init" ] && [ "$command" != "i" ]  && [ ! -d ".git" ]
 then
@@ -52,7 +51,6 @@ then
     exit
 fi
 
-verify_requirements # verify required file exists or not, if not create them
 # commands
 
 if [ $# -gt 0 ]
@@ -63,15 +61,16 @@ then
         then
             colori $Yellow
             echo "Already Initialized"
+            verify_requirements
         else
             colori $UGreen
             echo "Initializing_repo :"
             colori $Red
-            git init
+            git init 
+            verify_requirements
         fi
     elif [ "$command" == "add" ] || [ "$command" == "a" ]
     then
-
         add
     elif [ "$command" == "list-files" ] || [ "$command" == "ls" ]
     then
