@@ -20,6 +20,14 @@ verify_requirements () {
     then
         touch "$header_file"
     fi
+    if [ ! -f "$gitignore_file" ]
+    then
+        touch "$gitignore_file"
+        echo "$info_temp_name" >> $gitignore_file
+        echo "$commit_temp_name" >> $gitignore_file
+        echo "*.save" >> $gitignore_file
+        echo "*.swp" >> $gitignore_file
+    fi
 
     commit? "Created requirements!"
 }
