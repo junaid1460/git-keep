@@ -1,7 +1,11 @@
-info_temp_file="$repo/information.md"
-commit_temp_file="$repo/commitmessage.md"
+#!/bin/bash
+info_temp_name='information.md'
+commit_temp_name='commitmessage.md'
+info_temp_file="$repo/$info_temp_name"
+commit_temp_file="$repo/$commit_temp_name"
 files_dir="$repo/files"
 info_file="$files_dir/files.csv"
 readmefile="$repo/README.md"
 header_file="$repo/header.md"
 footer_file="$repo/footer.md"
+gitignore_file="$repo/.gitignore"
