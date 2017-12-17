@@ -15,6 +15,10 @@ printi () { #inline print
 }
 
 commit? () {
+    if [ ! -d '.git' ]
+    then
+        return
+    fi
     message="$1"
     tmp="$(git diff --exit-code)"
     if [ "$tmp" != "" ]
