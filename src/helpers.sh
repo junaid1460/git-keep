@@ -17,13 +17,15 @@ printi () { #inline print
 commit? () {
     if [ ! -d '.git' ]
     then
+        echo "Repo not initialized"
         return
     fi
     message="$1"
-    tmp="$(git diff --exit-code)"
-    if [ "$tmp" != "" ]
+    tmp="$(git status -s)"
+    if [ ! "$tmp" == '' ]
     then
         git add .
-        git commit -m $message
+        git commit -m "$message"
+        echo "committed chages"
     fi
 }
