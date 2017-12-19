@@ -2,13 +2,13 @@
 
 writeheader () {
     out=$1
-    echo "$(cat $header_file)" >> $out
-}
+    echo "$(cat $header_file)" 
+} > $readmefile
 
 writefooter () {
     out=$1
-    echo "$(cat $footer_file)" >> $out
-}
+    echo "$(cat $footer_file)" 
+} >> $readmefile
 
 writeInfoAsLinks () {
     out=$1
@@ -16,17 +16,17 @@ writeInfoAsLinks () {
     IFS=$'\n'
     for line in $file;do
         IFS=, read -r file commit <<< "$line"
-        echo " - [$commit](files/$file)" >> $out
+        echo " - [$commit](files/$file)" 
     done
-}
+} >> $readmefile
 
 updateREADME () {
-    # clear file
-    echo -n '' > $readmefile
     # header
-    writeheader $readmefile
+    writeheader
     # content
-    writeInfoAsLinks $readmefile
+    writeInfoAsLinks 
     # footer
-    writefooter $readmefile
+    writefooter
+    # commit
+    commit? $1
 }
