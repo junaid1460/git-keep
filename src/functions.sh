@@ -1,10 +1,6 @@
 # This file has all functions for doc <repo> add
 
-#edit files
-edit () {
-    current_file=$1
-    eval $editor $current_file
-}
+
 
 # Show summary
 show () {

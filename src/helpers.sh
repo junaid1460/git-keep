@@ -66,3 +66,9 @@ callOnFile () {
         $func $currentFile $currentCommit $number
     fi
 }
+
+#edit files
+edit () {
+    current_file=$1
+    eval $editor $current_file
+}
