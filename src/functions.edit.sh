@@ -35,19 +35,6 @@ editThis () { # filename, commitmessage, filenumber
 
 editWithNumber () {
     number=$1
-    messages="$(cat $info_file)"
-    count=0
-    IFS=$'\n'
-    for i in $messages;do
-        IFS=, read -r file commit <<< "$i"
-        if [ "$count" == "$number" ]
-        then 
-            editThis $file $commit $number
-            return
-        fi
-        count=$(($count+1))
-        IFS=$'\n'
-    done
-    colori $Red 
-    print "File not found"
+    callOnFile $number editThis "File not found!"
 }
+
