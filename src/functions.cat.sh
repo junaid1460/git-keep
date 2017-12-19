@@ -5,11 +5,16 @@ showfile () {
     # $2 : commit
     file=$1
     commit=$2
+    color $Green
+    print +++
     colori $Yellow
     print $commit
     color $Off
     # echo $message
     cat $files_dir/$file
+    colori $Green
+    print +++
+    color $Off
 }
 
 showFileWithNumber () {
