@@ -14,7 +14,6 @@ write () {
     echo "$newfile,$message" >> "$info_file"
     cp $info_temp_file "$files_dir/$newfile"
     touch $info_temp_file # avoid error while deleting file
-    commit? "$1 $message"
 }
 
 # generate new file name which does not exist under <repo>/files
@@ -92,7 +91,7 @@ add () {
     confirm
 
     # update readme file
-    updateREADME "Updated README.md"
+    updateREADME "$(get_commit_message)"
     #delete temporary file
     delete_temp
 }
