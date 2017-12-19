@@ -94,7 +94,7 @@ then
             # edit file with number
             editWithNumber $parameter
         fi
-    elif [ "$command" == "cat" ]
+    elif [ "$command" == "cat" ] || [ "$command" == "c" ]
     then
         showFileWithNumber $parameter
 
