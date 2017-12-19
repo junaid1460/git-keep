@@ -4,15 +4,7 @@
 
 # Show summary
 show () {
-    color $Green
-    print "Information : "
-    color $Off
-    echo "$(cat $info_temp_file)"
-    color $Yellow
-    print "Commit message : "
-    color $Off
-    echo "$(cat $commit_temp_file)"
-    color $Off
+    showfile "../$info_temp_name" "$(cat $commit_temp_file)"
 }
 
 # write content to new file and commit
@@ -20,7 +12,7 @@ write () {
     message="$(get_commit_message)"
     newfile="$(get_newfile_name $message)"
     echo "$newfile,$message" >> "$info_file"
-    mv $info_temp_file "$files_dir/$newfile"
+    cp $info_temp_file "$files_dir/$newfile"
     touch $info_temp_file # avoid error while deleting file
     commit? "$1 $message"
 }
@@ -100,8 +92,7 @@ add () {
     confirm
 
     # update readme file
-    updateREADME
-    commit? "Updated README.md"
+    updateREADME "Updated README.md"
     #delete temporary file
     delete_temp
 }
