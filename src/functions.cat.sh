@@ -3,8 +3,8 @@
 showfile () {
     # $1 : file
     # $2 : commit
-    filepath=$1
-    # message="$()"
+    file=$1
+    commit=$2
     colori $Yellow
     print $commit
     color $Off
@@ -14,17 +14,5 @@ showfile () {
 
 showFileWithNumber () {
     number=$1
-    messages="$(cat $info_file)"
-    count=0
-    IFS=$'\n'
-    for i in $messages;do
-        IFS=, read -r file commit <<< "$i"
-        if [ "$count" == "$number" ]
-        then 
-            showfile $file $commit
-            return
-        fi
-        count=$(($count+1))
-        IFS=$'\n'
-    done
+    callOnFile $number showfile "File not found!"
 }
