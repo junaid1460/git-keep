@@ -12,6 +12,7 @@ logging important information to local repository, with little automation.
  - listing added log files
  - editing header and footer for README.md  
  - showing file in terminal
+ - delete a record file
 
 
 #### `Background`
