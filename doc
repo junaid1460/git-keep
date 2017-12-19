@@ -24,6 +24,7 @@ source "$local_dir/functions.update.sh"
 source "$local_dir/functions.precheck.sh"
 source "$local_dir/functions.edit.sh"
 source "$local_dir/functions.cat.sh"
+source "$local_dir/functions.del.sh"
 
 
 
