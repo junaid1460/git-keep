@@ -20,13 +20,13 @@ show () {
 }
 
 # write content to new file and commit
-commit () {
+write () {
     message="$(get_commit_message)"
     newfile="$(get_newfile_name $message)"
     echo "$newfile,$message" >> "$info_file"
     mv $info_temp_file "$files_dir/$newfile"
     touch $info_temp_file # avoid error while deleting file
-    commit? $message
+    commit? "$1 $message"
 }
 
 # generate new file name which does not exist under <repo>/files
@@ -71,7 +71,7 @@ get_commit_message () {
 # Confirm after edit
 confirm () {
     ask #ask what to do 
-    commit #commit changes
+    write "C :"#commit changes
     show
 }
 
