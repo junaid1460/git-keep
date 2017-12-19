@@ -80,13 +80,11 @@ then
         if [ "$parameter" == "header" ]
         then
             edit $header_file
-            updateREADME
-            commit? "Changed header."
+            updateREADME "Changed header."
         elif [ "$parameter" == "footer" ]
         then
             edit $footer_file
-            updateREADME
-            commit? "Changed footer."
+            updateREADME "Changed footer."
 
         elif [ "$parameter" == "" ]
         then
