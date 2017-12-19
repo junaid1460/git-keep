@@ -98,6 +98,10 @@ then
     then
         showFileWithNumber $parameter
 
+    elif [ "$command" == "del" ] || [ "$command" == "d" ]
+    then
+        deleteWithNumber $parameter
+
     elif [ "$command" == "help" ] || [ "$command" == "h" ]
     then
         error
