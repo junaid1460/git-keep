@@ -4,7 +4,7 @@
 
 # Show summary
 show () {
-    showfile "../$info_temp_name" "$(cat $commit_temp_file)"
+    showfile "../$info_temp_name" "$commit_temp_file" "1"
 }
 
 # write content to new file and commit
