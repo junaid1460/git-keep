@@ -15,6 +15,7 @@ showfile () {
     cat $files_dir/$file
     colori $Green
     print "+++"
+    colori $Off
     color $Off
 }
 
