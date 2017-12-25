@@ -9,6 +9,7 @@ error () {
     print $Green"edit\t\te"$BWhite"\tedit files"
     print $Green"cat\t\t[None]"$BWhite"\tshow files"
     print $Green"help\t\th"$BWhite"\tshow this message"
+    print $Green"git\t\t[None]"$BWhite"\trun git ... on repository"
     colori $White
     print "\nparameters :"
     print "1. edit/e <parameter>"
