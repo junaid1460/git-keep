@@ -42,6 +42,7 @@ ask () {
     elif [ "$opt" == "x" ]
     then
         echo "Cancelling operation! (^C also works)"
+        exit
     fi
 }
 
