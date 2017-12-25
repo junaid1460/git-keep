@@ -76,6 +76,10 @@ then
     elif [ "$command" == "list-files" ] || [ "$command" == "ls" ]
     then
         list_info
+    elif [ "$command" == "git" ]
+    then
+        IFS=' ' read -r -a git_command <<< "$@"
+        exec "${git_command[@]:1}"
     elif [ "$command" == "edit" ] || [ "$command" == "e" ]
     then
         if [ "$parameter" == "header" ]
