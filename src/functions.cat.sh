@@ -7,19 +7,14 @@ showfile () {
     file=$1
     commit=$2
     color $Green
-    print +++
+    print "+++"
     colori $Yellow
-    if [ "$3" == "1" ]
-    then
-        cat "$2"
-    else
-        print $commit
-    fi
+    print "$commit"
     color $Off
     # echo $message
     cat $files_dir/$file
     colori $Green
-    print +++
+    print "+++"
     color $Off
 }
 
