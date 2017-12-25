@@ -32,13 +32,16 @@ get_newfile_name () {
 
 # ask for confirmation
 ask () {
-    echo  -ne "commit or edit [Ce]?" 
+    echo  -ne "commit or edit or cancel[C/e/x]?" 
     read opt
     if [ "$opt" == "e" ]
     then
-        echo -e "\e[1A\r                                  \e[1A\r"
+        echo -e "\e[1A\r                                               \e[1A\r"
         add  
-        return     
+        return   
+    elif [ "$opt" == "x" ]
+    then
+        echo "Cancelling operation! (^C also works)"
     fi
 }
 
