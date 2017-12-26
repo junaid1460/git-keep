@@ -6,6 +6,8 @@ logging important information to local repository, with little automation.
  - The command has `doc <absolute-path-to-yourlogdir> <option> [parameter]` pattern.
  - avoid typing logdir path by aliasing this command `alias mydoc='doc <absolute-path-to-yourlogdir>'`
 
+ <img src="usage.gif" width="100%"/>
+
 ### what is ready?
 #### `Interface`
  - adding new log file
