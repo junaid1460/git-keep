@@ -1,5 +1,6 @@
 # Terminal quick logger
 logging important information to local repository, with little automation.
+my logs repository created by this tool [here](https://github.com/junaid1460/logs)
 
 ### How to
  - clone this repository and add it to path
