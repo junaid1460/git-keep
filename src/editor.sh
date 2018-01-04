@@ -1,10 +1,10 @@
-if [ "$(hash nano)" == "" ]
+if [ "$(command -v nano)" != "" ]
 then
     editor="nano"
-elif [ "$(hash vim)" == "" ]
+elif [ "$(command -v vim)" != "" ]
 then
     editor="vim"
-elif [ "$(hash vi)" == "" ]
+elif [ "$(command -v vi)" != "" ]
 then
     editor="vi"
 else
