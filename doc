@@ -17,8 +17,24 @@ then
     exit
 fi
 
-# import local files
+
+
+
 dir="$(cd $(dirname $0);pwd)"
+
+if [ ! -f  "$dir/src/variables.sh" ]
+then
+    if [ -f  "$GKSRC/src/variables.sh" ]
+    then
+        dir=$GKSRC
+    else
+        echo "Please export source directory"
+        echo "export GKSRC='/path/to/gitkeep/source'"
+        echo "add this line to your shell's init file (.bashrc, .zshrc)"
+        exit 1
+    fi
+fi
+# import source files
 local_dir="$dir/src"
 source "$local_dir/variables.sh"
 source "$local_dir/colors.sh"
